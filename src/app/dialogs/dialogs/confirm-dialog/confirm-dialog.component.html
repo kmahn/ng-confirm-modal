@@ -1,0 +1,6 @@
+<h1 *ngIf="options?.title">{{options.title}}</h1>
+<p *ngIf="options?.description">{{options.description}}</p>
+<div class="footer">
+  <button type="button" (click)="dialogRef.close(false)">아니오</button>
+  <button type="button" (click)="dialogRef.close(true)">예</button>
+</div>

@@ -1,0 +1,22 @@
+ul {
+  list-style: none;
+}
+
+li {
+  display: grid;
+  grid-template-columns: 10rem 10rem 5rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  &:hover {
+    background-color: #eaeaea;
+  }
+
+  *:not(button) {
+    font-size: 1rem;
+  }
+
+  .price {
+    text-align: right;
+  }
+}
