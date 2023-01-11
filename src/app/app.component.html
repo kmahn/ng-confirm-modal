@@ -1,4 +1,10 @@
 <h1>상품 목록</h1>
+
+<div class="adder">
+  <input type="text" #nameInput>
+  <input type="number" #priceInput>
+  <button type="button" (click)="add(nameInput.value, +priceInput.value)">추가</button>
+</div>
 <ul>
   <li *ngFor="let item of items">
     <h1>{{item.name}}</h1>

@@ -32,16 +32,13 @@ export function Confirmable(options?: ConfirmDialogOptions) {
     const original = descriptor.value;
     const data = { ...defaultOptions, ...options };
 
-    descriptor.value = async function (...args: any) {
+    descriptor.value = async function () {
       const targetParams: ConfirmTargetParam[] = Reflect.getOwnMetadata(CONFIRM_TARGET, target, propertyKey);
-      console.log(args);
       if (targetParams && targetParams.length > 0) {
         const { index, key } = targetParams[0];
-        console.log(key);
-        const str = key ? args[index][key] : args[index];
+        const str = key ? arguments[index][key] : arguments[index];
         data!.title = options?.title?.replace('%s', str) || '';
         data!.description = options?.description?.replace('%s', str) || '';
-
       }
 
       let dialog: Dialog = DialogsModule.injector.get<Dialog>(Dialog);

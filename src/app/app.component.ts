@@ -19,6 +19,15 @@ export class AppComponent {
   constructor() {
   }
 
+
+  @Confirmable({
+    title: '다음 상품을 추가하시겠습니까?',
+    description: '상품명: %s'
+  })
+  add(@ConfirmTarget() name: string, price: number) {
+    this.items.push({ name, price });
+  }
+
   @Confirmable({
     title: '다음 상품을 삭제하시겠습니까?',
     description: '상품명: %s'
